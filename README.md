@@ -1,0 +1,2 @@
+# kb-handler
+Kibana handler
