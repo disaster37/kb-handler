@@ -36,7 +36,7 @@ type KibanaHandlerImpl struct {
 	log    *logrus.Entry
 }
 
-func NewElasticsearchHandler(cfg kibana.Config, log *logrus.Entry) (KibanaHandler, error) {
+func NewKibanaHandler(cfg kibana.Config, log *logrus.Entry) (KibanaHandler, error) {
 
 	client, err := kibana.NewClient(cfg)
 	if err != nil {
