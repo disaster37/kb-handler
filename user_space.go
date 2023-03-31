@@ -56,3 +56,9 @@ func (h *KibanaHandlerImpl) UserSpaceDiff(actualObject, expectedObject, original
 
 	return patch.DefaultPatchMaker.Calculate(actualObject, expectedObject, originalObject)
 }
+
+func (h *KibanaHandlerImpl) UserSpaceCopyObject(userSpaceOrigin string, copySpec *kbapi.KibanaSpaceCopySavedObjectParameter) (err error) {
+	h.log.Debugf("From User space: %s", userSpaceOrigin)
+
+	return h.client.KibanaSpaces.CopySavedObjects(copySpec, userSpaceOrigin)
+}

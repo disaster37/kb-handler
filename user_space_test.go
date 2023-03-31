@@ -245,3 +245,53 @@ func (t *KibanaHandlerTestSuite) TestUserSpaceDiff() {
 	assert.Equal(t.T(), actual, diff.Patched)
 
 }
+
+func (t *KibanaHandlerTestSuite) TestUserSpaceCopyObject() {
+
+	url := "/api/spaces/_copy_saved_objects"
+
+	httpmock.RegisterResponder("POST", url, func(req *http.Request) (*http.Response, error) {
+		resp := httpmock.NewStringResponse(200, `
+{
+	"test": {
+		"success": true,
+		"successCount": 1,
+		"successResults": [
+			{
+				"id": "fake",
+				"type": "index-pattern",
+				"destinationId": "bc3c9c70-bf6f-4bec-b4ce-f4189aa9e26b",
+				"meta": {
+					"icon": "indexPatternApp",
+					"title": "my-pattern-*"
+				}
+			}
+		]
+	}
+}
+		`)
+		return resp, nil
+	})
+
+	copySpec := &kbapi.KibanaSpaceCopySavedObjectParameter{
+		Spaces:            []string{"test"},
+		IncludeReferences: true,
+		Overwrite:         true,
+		Objects: []kbapi.KibanaSpaceObjectParameter{
+			{
+				Type: "index-pattern",
+				ID:   "fake",
+			},
+		},
+	}
+
+	err := t.kbHandler.UserSpaceCopyObject("default", copySpec)
+	if err != nil {
+		t.Fail(err.Error())
+	}
+
+	// When error
+	httpmock.RegisterResponder("POST", url, httpmock.NewErrorResponder(errors.New("fack error")))
+	err = t.kbHandler.UserSpaceCopyObject("default", copySpec)
+	assert.Error(t.T(), err)
+}

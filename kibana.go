@@ -17,6 +17,7 @@ type KibanaHandler interface {
 	UserSpaceDelete(name string) (err error)
 	UserSpaceGet(name string) (userspace *kbapi.KibanaSpace, err error)
 	UserSpaceDiff(actualObject, expectedObject, originalObject *kbapi.KibanaSpace) (patchResult *patch.PatchResult, err error)
+	UserSpaceCopyObject(userSpaceOrigin string, copySpec *kbapi.KibanaSpaceCopySavedObjectParameter) (err error)
 
 	// Role scope
 	RoleUpdate(role *kbapi.KibanaRole) (err error)

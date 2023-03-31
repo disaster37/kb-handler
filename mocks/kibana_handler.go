@@ -179,6 +179,20 @@ func (mr *MockKibanaHandlerMockRecorder) SetLogger(arg0 interface{}) *gomock.Cal
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetLogger", reflect.TypeOf((*MockKibanaHandler)(nil).SetLogger), arg0)
 }
 
+// UserSpaceCopyObject mocks base method.
+func (m *MockKibanaHandler) UserSpaceCopyObject(arg0 string, arg1 *kbapi.KibanaSpaceCopySavedObjectParameter) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "UserSpaceCopyObject", arg0, arg1)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// UserSpaceCopyObject indicates an expected call of UserSpaceCopyObject.
+func (mr *MockKibanaHandlerMockRecorder) UserSpaceCopyObject(arg0, arg1 interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UserSpaceCopyObject", reflect.TypeOf((*MockKibanaHandler)(nil).UserSpaceCopyObject), arg0, arg1)
+}
+
 // UserSpaceCreate mocks base method.
 func (m *MockKibanaHandler) UserSpaceCreate(arg0 *kbapi.KibanaSpace) error {
 	m.ctrl.T.Helper()
