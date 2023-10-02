@@ -3,9 +3,8 @@ module github.com/disaster37/kb-handler/v8
 go 1.20
 
 require (
-	emperror.dev/errors v0.8.1
+	github.com/disaster37/generic-objectmatcher v1.0.1
 	github.com/disaster37/go-kibana-rest/v8 v8.5.0
-	github.com/disaster37/k8s-objectmatcher v1.8.1
 	github.com/google/go-cmp v0.5.9
 	github.com/jarcoal/httpmock v1.3.0
 	github.com/json-iterator/go v1.1.12
@@ -15,7 +14,9 @@ require (
 )
 
 require (
+	emperror.dev/errors v0.8.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/disaster37/k8s-objectmatcher v1.8.2 // indirect
 	github.com/evanphx/json-patch v5.6.0+incompatible // indirect
 	github.com/go-logr/logr v1.2.3 // indirect
 	github.com/go-resty/resty/v2 v2.7.0 // indirect

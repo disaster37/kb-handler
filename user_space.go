@@ -2,7 +2,7 @@ package kbhandler
 
 import (
 	"github.com/disaster37/go-kibana-rest/v8/kbapi"
-	"github.com/disaster37/kb-handler/v8/patch"
+	"github.com/disaster37/generic-objectmatcher/patch"
 	jsonIterator "github.com/json-iterator/go"
 	"github.com/pkg/errors"
 )

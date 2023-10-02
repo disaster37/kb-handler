@@ -7,9 +7,9 @@ package mocks
 import (
 	reflect "reflect"
 
+	patch "github.com/disaster37/generic-objectmatcher/patch"
 	kibana "github.com/disaster37/go-kibana-rest/v8"
 	kbapi "github.com/disaster37/go-kibana-rest/v8/kbapi"
-	patch "github.com/disaster37/kb-handler/v8/patch"
 	gomock "github.com/golang/mock/gomock"
 	logrus "github.com/sirupsen/logrus"
 )
